@@ -291,7 +291,11 @@ Se devi usare un selettore ID (ma davvero dovresti evitarlo assolutamente), non 
 
 **[⬆ Torna su](#sommario)**
 
-## Translation
+## Versione originale
+
+La versione originale di Airbnb si trova su [airbnb/css](https://github.com/airbnb/css)
+
+## Traduzioni
 
   Queste linee guida sono disponibili in diverse lingue: 
 
@@ -305,6 +309,5 @@ Se devi usare un selettore ID (ma davvero dovresti evitarlo assolutamente), non 
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [Nekorsis/css-style-guide](https://github.com/Nekorsis/css-style-guide)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [ismamz/guia-de-estilo-css](https://github.com/ismamz/guia-de-estilo-css)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnamese**: [trungk18/css-style-guide](https://github.com/trungk18/css-style-guide)
-  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italiano**: [antoniofull/linee-guida-css](https://github.com/antoniofull/linee-guida-css)
 
 **[⬆ torna su](#sommario)**
