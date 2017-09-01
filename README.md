@@ -5,7 +5,7 @@
 ## Sommario 
 
 1. [Terminologia](#Terminologia)
-    - [Regole](#rule-declaration)
+    - [Regole](#regole)
     - [Selettori](#selettori)
     - [Proprietà](#proprieta)
 1. [CSS](#css)
@@ -265,7 +265,7 @@ I Mixins dovrebbero essere usati per creare il tuo codice DRY (Do not repeat you
 `@extend` dovrebbe essere evitato perchè ha un comportamento poco intuitivo e pericoloso, spcialmente quando usato in selettori nidificati. Anchce estendendo selettori top-level può causare problemi se l'ordine dei selettori viene cambiato in futuro (per esempio se sono in un altro file e l'ordine dei file caricati cambia).
 Gzipping dovrebbe aiutarti a ridurre le dimensione del file allo stesso modo come se stessi suando `@extend` e tu puoi fare il tuo codice più DRY con i mixins.
 
-### Nested selectors
+### Selettori annidati
 
 **Non nidificare i tuoi selettori piú di tre livelli!**
 
