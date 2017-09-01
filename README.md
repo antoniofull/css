@@ -238,7 +238,7 @@ Usa `0` invece di `none` per specificare che uno stile non ha bordi.
 
 3. Selettori Nidificati
 
-    Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
+    I selettori nidificati, _se necessario_, vanno alla fine, e niente fa dopo di essi. Aggiungi spazio bianco tra la tua regola e i selettori nidificati, cosí come tra selettori nidificati adiacenti. Applica le stesse linee guida come sopra al tuo selettore nidificato.
 
     ```scss
     .btn {
@@ -252,21 +252,22 @@ Usa `0` invece di `none` per specificare che uno stile non ha bordi.
     }
     ```
 
-### Variables
+### Variabili
 
-Prefer dash-cased variable names (e.g. `$my-variable`) over camelCased or snake_cased variable names. It is acceptable to prefix variable names that are intended to be used only within the same file with an underscore (e.g. `$_my-variable`).
+Favorisci nomi di variabili con trattino (esempio: `$my-variable`) invece di camelCased o snake_cased nomi di variabili. E' accettabile prefissare i nomi delle variabli che vengono usati solo all'interno dello stesso file con un trattino basso (esempio: `$_my-variable`).
 
 ### Mixins
 
-Mixins should be used to DRY up your code, add clarity, or abstract complexity--in much the same way as well-named functions. Mixins that accept no arguments can be useful for this, but note that if you are not compressing your payload (e.g. gzip), this may contribute to unnecessary code duplication in the resulting styles.
+I Mixins dovrebbero essere usati per creare il tuo codice DRY (Do not repeat yourself), aggiungere chiarità, o astrarre complessità, allo stesso modo come funzioni con nomi significativi. Mixins senza argomenti possono essere utili, ma nota che se non fai la compressione del file (per esempio in gzip) questo potrebbe contribuire a inutile duplicazione del codice nel css che viene compilato.
 
-### Extend directive
+### Direttiva Extend
 
-`@extend` should be avoided because it has unintuitive and potentially dangerous behavior, especially when used with nested selectors. Even extending top-level placeholder selectors can cause problems if the order of selectors ends up changing later (e.g. if they are in other files and the order the files are loaded shifts). Gzipping should handle most of the savings you would have gained by using `@extend`, and you can DRY up your stylesheets nicely with mixins.
+`@extend` dovrebbe essere evitato perchè ha un comportamento poco intuitivo e pericoloso, spcialmente quando usato in selettori nidificati. Anchce estendendo selettori top-level può causare problemi se l'ordine dei selettori viene cambiato in futuro (per esempio se sono in un altro file e l'ordine dei file caricati cambia).
+Gzipping dovrebbe aiutarti a ridurre le dimensione del file allo stesso modo come se stessi suando `@extend` e tu puoi fare il tuo codice più DRY con i mixins.
 
 ### Nested selectors
 
-**Do not nest selectors more than three levels deep!**
+**Non nidificare i tuoi selettori piú di tre livelli!**
 
 ```scss
 .page-container {
@@ -278,22 +279,21 @@ Mixins should be used to DRY up your code, add clarity, or abstract complexity--
 }
 ```
 
-When selectors become this long, you're likely writing CSS that is:
+Quando i selettori sono cosí lunghi, tu stai probabilmente scrivendo CSS the è: 
 
-* Strongly coupled to the HTML (fragile) *—OR—*
-* Overly specific (powerful) *—OR—*
-* Not reusable
+* Fortemente connesso con il HTML (fragile) *—OR—*
+* Troppo specifico (powerful) *—OR—*
+* Non riusabile
 
+Di nuovo: **Non usare mai selettori ID!**
 
-Again: **never nest ID selectors!**
+Se devi usare un selettore ID (ma davvero dovresti evitarlo assolutamente), non dovrebbero mai essere nidificati. Se ti trovi in questa situazione allora vuol dire che il tuo markup HTML è sbagliato, oppure revisare il codice. Se vuoi scrivere codice HTML e CSS che sia chiaro e ben scritto non dovresti mai usare selettori ID.
 
-If you must use an ID selector in the first place (and you should really try not to), they should never be nested. If you find yourself doing this, you need to revisit your markup, or figure out why such strong specificity is needed. If you are writing well formed HTML and CSS, you should **never** need to do this.
-
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Torna su](#sommario)**
 
 ## Translation
 
-  This style guide is also available in other languages:
+  Queste linee guida sono disponibili in diverse lingue: 
 
   - ![id](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Indonesia.png) **Bahasa Indonesia**: [mazipan/css-style-guide](https://github.com/mazipan/css-style-guide)
   - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese (Traditional)**: [ArvinH/css-style-guide](https://github.com/ArvinH/css-style-guide)
@@ -305,5 +305,6 @@ If you must use an ID selector in the first place (and you should really try not
   - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [Nekorsis/css-style-guide](https://github.com/Nekorsis/css-style-guide)
   - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [ismamz/guia-de-estilo-css](https://github.com/ismamz/guia-de-estilo-css)
   - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Vietnam.png) **Vietnamese**: [trungk18/css-style-guide](https://github.com/trungk18/css-style-guide)
+  - ![vn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Italy.png) **Italiano**: [antoniofull/css](https://github.com/antoniofull/css)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ torna su](#sommario)**
