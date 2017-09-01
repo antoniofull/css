@@ -129,14 +129,14 @@ Noi incoraggiamo una combinazione di OOCSS e BEM per le seguenti ragioni:
   * Nicole Sullivan's [OOCSS wiki](https://github.com/stubbornella/oocss/wiki)
   * Smashing Magazine's [Introduction to OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
 
-**BEM**, or “Block-Element-Modifier”, is a _naming convention_ for classes in HTML and CSS. It was originally developed by Yandex with large codebases and scalability in mind, and can serve as a solid set of guidelines for implementing OOCSS.
+**BEM**, sta per “Block-Element-Modifier”, è una _naming convention_ (convenzione per naming delle classi css) per le classi in HTML e CSS. Originalmente sviluppata da Yandex tenendo in conto un largo codice di base e scalabilità, e può essere utilizzata come una solita linea di guida per implementare OOCSS.
 
   * CSS Trick's [BEM 101](https://css-tricks.com/bem-101/)
   * Harry Roberts' [introduction to BEM](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
 
-We recommend a variant of BEM with PascalCased “blocks”, which works particularly well when combined with components (e.g. React). Underscores and dashes are still used for modifiers and children.
+Noi raccomandiamo una variante di BEM con PascalCased "blocchi", il quale funziona particolarmente bene quando combinato con componenti (ad esempio React.). Trattino basso e trattino sono usati per modificatori (La M in BEM) e figli (la E in BEM).
 
-**Example**
+**Esempio**
 
 ```jsx
 // ListingCard.jsx
@@ -167,27 +167,25 @@ function ListingCard() {
   * `.ListingCard__title` is an “element” and represents a descendant of `.ListingCard` that helps compose the block as a whole.
   * `.ListingCard--featured` is a “modifier” and represents a different state or variation on the `.ListingCard` block.
 
-### ID selectors
+### Selettori ID 
 
-While it is possible to select elements by ID in CSS, it should generally be considered an anti-pattern. ID selectors introduce an unnecessarily high level of [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) to your rule declarations, and they are not reusable.
+Mentre è possibile usare selettori ID in CSS, generalmente è considerato un anti-pattern. I selettori ID introducono un non necessario alto livello di [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) alle tue regole css, and il codice diventa non riutilizzabile.
 
-For more on this subject, read [CSS Wizardry's article](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) on dealing with specificity.
+Per maggiori informazioni sul soggetto, puoi leggere (in inglese) [questo articolo di CSS Wizardry](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) su come usare bene la specificity.
 
-### JavaScript hooks
+### Ancore JavaScript
 
-Avoid binding to the same class in both your CSS and JavaScript. Conflating the two often leads to, at a minimum, time wasted during refactoring when a developer must cross-reference each class they are changing, and at its worst, developers being afraid to make changes for fear of breaking functionality.
-
-We recommend creating JavaScript-specific classes to bind to, prefixed with `.js-`:
+Evita di connettere le stesse classi nel tuo CSS e Javascript. Combinare i due spesso porta, come minimo, a tempo perso durante il refactoring quando un developer deve fare referenza a ogni classe che sta cambiando, oppure porta il developer a non eseguire i cambi per paura di fare cambi che possano compromettere il codice base. Noi raccomandiamo di creare delle specifiche classi da usare poi in javascript, con il prefisso `.js-`:
 
 ```html
 <button class="btn btn-primary js-request-to-book">Request to Book</button>
 ```
 
-### Border
+### Bordi
 
-Use `0` instead of `none` to specify that a style has no border.
+Usa `0` invece di `none` per specificare che uno stile non ha bordi.
 
-**Bad**
+**Sbagliato**
 
 ```css
 .foo {
@@ -195,27 +193,27 @@ Use `0` instead of `none` to specify that a style has no border.
 }
 ```
 
-**Good**
+**Corretto**
 
 ```css
 .foo {
   border: 0;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ Torna su](#Sommario)**
 
 ## Sass
 
-### Syntax
+### Syntassi
 
-* Use the `.scss` syntax, never the original `.sass` syntax
-* Order your regular CSS and `@include` declarations logically (see below)
+* Usa la sintassi `.scss`, mai l'originale sintassi `.sass` 
+* Ordina il tuo CSS regolare con la dichiarazione `@include` logicamente (vedi sotto)
 
-### Ordering of property declarations
+### Ordine di dichiarazione delle proprietà
 
-1. Property declarations
+1.  Dichiarazione di proprietà
 
-    List all standard property declarations, anything that isn't an `@include` or a nested selector.
+    Lista tutte le dichiarazioni di proprietà standard, tutto quello che non è un `@include` o un selettore nidificato. 
 
     ```scss
     .btn-green {
@@ -225,9 +223,9 @@ Use `0` instead of `none` to specify that a style has no border.
     }
     ```
 
-2. `@include` declarations
+2. `@include` dichiarazione
 
-    Grouping `@include`s at the end makes it easier to read the entire selector.
+    Raggruppare tutti gli `@include` alla fine rende facile leggere l'intera regola.
 
     ```scss
     .btn-green {
@@ -238,7 +236,7 @@ Use `0` instead of `none` to specify that a style has no border.
     }
     ```
 
-3. Nested selectors
+3. Selettori Nidificati
 
     Nested selectors, _if necessary_, go last, and nothing goes after them. Add whitespace between your rule declarations and nested selectors, as well as between adjacent nested selectors. Apply the same guidelines as above to your nested selectors.
 
