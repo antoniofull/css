@@ -4,7 +4,7 @@
 
 ## Sommario 
 
-1. [Terminologia](#Terminologia)
+1. [Terminologia](#terminologia)
     - [Regole](#regole)
     - [Selettori](#selettori)
     - [Proprietà](#proprieta)
