@@ -1,34 +1,34 @@
 # Airbnb CSS / Sass Styleguide
 
-*A mostly reasonable approach to CSS and Sass*
+*Un ragionevole approccio al CSS e Sass*
 
-## Table of Contents
+## Sommario 
 
-1. [Terminology](#terminology)
-    - [Rule Declaration](#rule-declaration)
-    - [Selectors](#selectors)
-    - [Properties](#properties)
+1. [Terminologia](#Terminologia)
+    - [Regole](#rule-declaration)
+    - [Selettori](#selettori)
+    - [Proprietà](#proprieta)
 1. [CSS](#css)
-    - [Formatting](#formatting)
-    - [Comments](#comments)
+    - [Formattazione](#formattazione)
+    - [Commenti](#commenti)
     - [OOCSS and BEM](#oocss-and-bem)
-    - [ID Selectors](#id-selectors)
-    - [JavaScript hooks](#javascript-hooks)
-    - [Border](#border)
+    - [Selettori ID](#selettori-id)
+    - [Ancore JavaScript](#ancore-javascript)
+    - [Bordi](#bordi)
 1. [Sass](#sass)
-    - [Syntax](#syntax)
-    - [Ordering](#ordering-of-property-declarations)
-    - [Variables](#variables)
+    - [Sintassi](#sintassi)
+    - [Ordine di dichiarazione delle proprietà](#ordine-di-dichiarazione-delle-proprietà)
+    - [Variabili](#variabili)
     - [Mixins](#mixins)
-    - [Extend directive](#extend-directive)
-    - [Nested selectors](#nested-selectors)
-1. [Translation](#translation)
+    - [Direttiva Extend](#direttiva-extend)
+    - [selettori annidati](#selettori-annidati)
+1. [Traduzioni](#Traduzioni)
 
-## Terminology
+## Terminologia
 
-### Rule declaration
+### Regole
 
-A “rule declaration” is the name given to a selector (or a group of selectors) with an accompanying group of properties. Here's an example:
+Una “regola” è il nome dato a un selettore (o a un gruppo di selettori )con un grouppo di proprietà. Di seguito un esempio:
 
 ```css
 .listing {
@@ -37,9 +37,9 @@ A “rule declaration” is the name given to a selector (or a group of selector
 }
 ```
 
-### Selectors
+### Selettori
 
-In a rule declaration, “selectors” are the bits that determine which elements in the DOM tree will be styled by the defined properties. Selectors can match HTML elements, as well as an element's class, ID, or any of its attributes. Here are some examples of selectors:
+In una regola css, "selettori" sono la parte che determina quale elemento del DOM riceve lo stile definito dalla proprietà. I selettori possono riferirsi a elementi HTML, cosí come a un classe di un elemento, ID, o qualsiasi altro attributo. Di seguito alcuni esempi di selettori: 
 
 ```css
 .my-element-class {
@@ -51,9 +51,10 @@ In a rule declaration, “selectors” are the bits that determine which element
 }
 ```
 
-### Properties
+### Proprietà
 
-Finally, properties are what give the selected elements of a rule declaration their style. Properties are key-value pairs, and a rule declaration can contain one or more property declarations. Property declarations look like this:
+Le proprietà sono i valori che danno all'elemento selezionato da una regola il suo stile.
+Proprietà sono valori con chiavi-valori, e una regola che può contenere una o più proprietà dichiarate. Le proprietà sono cosi: 
 
 ```css
 /* some selector */ {
@@ -62,23 +63,23 @@ Finally, properties are what give the selected elements of a rule declaration th
 }
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ back to top](#sommario)**
 
 ## CSS
 
-### Formatting
+### Formattare
 
-* Use soft tabs (2 spaces) for indentation
-* Prefer dashes over camelCasing in class names.
-  - Underscores and PascalCasing are okay if you are using BEM (see [OOCSS and BEM](#oocss-and-bem) below).
-* Do not use ID selectors
-* When using multiple selectors in a rule declaration, give each selector its own line.
-* Put a space before the opening brace `{` in rule declarations
-* In properties, put a space after, but not before, the `:` character.
-* Put closing braces `}` of rule declarations on a new line
-* Put blank lines between rule declarations
+* Usare soft tabs (2 spazi) per indentare il codice css
+* Favorire trattino(-) invece che camelCase quando definire i nomi delle classi.
+  - Trattino basso e PascalCasing sono okay se tu stai usando BEM (vedi [OOCSS and BEM](#oocss-and-bem) sotto).
+* Non usare selettori ID.
+* Quando si usano multipli selettori in a regola, dare a ogni selettore la sua linea. 
+* Usare uno spazio prima di aprire la parentesi graffa `{` nella regola.
+* Nelle proprietà, usa uno spazio dopo, ,ma non prima, il carattere `:`.
+* Usare parentesi di chiusura `}` della regola in una nuova linea.
+* Usare una linea vuota tra le varie regole.
 
-**Bad**
+**Sbagliato**
 
 ```css
 .avatar{
@@ -92,7 +93,7 @@ Finally, properties are what give the selected elements of a rule declaration th
 }
 ```
 
-**Good**
+**Corretto**
 
 ```css
 .avatar {
@@ -107,24 +108,23 @@ Finally, properties are what give the selected elements of a rule declaration th
 }
 ```
 
-### Comments
+### Commenti
 
-* Prefer line comments (`//` in Sass-land) to block comments.
-* Prefer comments on their own line. Avoid end-of-line comments.
-* Write detailed comments for code that isn't self-documenting:
-  - Uses of z-index
-  - Compatibility or browser-specific hacks
+* Favorire commenti in linea (`//` stile sass) rispetto a commenti di block.
+* Favorire commenti sulla propria linea, evitare commenti in multikinea.
+* Scrivere dettagliati commenti per il codice che non è auto-documentato:
+  - Uso di z-index
+  - Compatibilità o specifici hacks per browser
 
 ### OOCSS and BEM
 
-We encourage some combination of OOCSS and BEM for these reasons:
+Noi incoraggiamo una combinazione di OOCSS e BEM per le seguenti ragioni:
+  * Aiuta a creare chiare e strette relazioni tra CSS e HTML 
+  * Aiuta a creare riusabili componenti
+  * Permette di ridurre la nidificazione e tenere la specifity bassa
+  * Aiuta a costruire fogli di stile facilmente scalabili
 
-  * It helps create clear, strict relationships between CSS and HTML
-  * It helps us create reusable, composable components
-  * It allows for less nesting and lower specificity
-  * It helps in building scalable stylesheets
-
-**OOCSS**, or “Object Oriented CSS”, is an approach for writing CSS that encourages you to think about your stylesheets as a collection of “objects”: reusable, repeatable snippets that can be used independently throughout a website.
+**OOCSS**, oppure “Object Oriented CSS”, è un approccio per scrivere CSS che ti incoraggia a pensare al tuo foglio di stile come una collezione di "oggetti": riusabili, ripetibili snippets di codice che possono essere usati indipendentemente in un sito web.
 
   * Nicole Sullivan's [OOCSS wiki](https://github.com/stubbornella/oocss/wiki)
   * Smashing Magazine's [Introduction to OOCSS](http://www.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/)
